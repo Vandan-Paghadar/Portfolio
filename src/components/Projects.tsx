@@ -24,12 +24,12 @@ export function Projects() {
               <p className="text-sm uppercase tracking-[0.22em] text-neutral-400">
                 Projects coming soon.
               </p>
-              <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-500">
+              {/*<p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-neutral-500">
                 Add entries to{" "}
                 <code className="text-neutral-800">src/data/site.ts</code> — they
                 will render with the reusable{" "}
                 <code className="text-neutral-800">ProjectCard</code>.
-              </p>
+              </p>*/}
             </div>
           </Reveal>
         ) : (
