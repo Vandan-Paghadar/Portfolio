@@ -118,6 +118,7 @@ export const earlyWork = {
       "One of my early experiments with electronics and programming — building a simple indicator that responds as the water level rises.",
     src: "/videos/water-level-indicator.mp4",
     poster: "/videos/water-level-indicator-poster.jpg",
+    external: false,
   },
 };
 
@@ -163,6 +164,6 @@ export const socials: {
   },
   email: {
     label: "Email",
-    href: "mailto:vandanpaghadar@gmail.com",
+    href: "mailto:vandan.paghadar@gmail.com",
   },
 };
