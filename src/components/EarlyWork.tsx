@@ -36,6 +36,7 @@ export function EarlyWork() {
               description={earlyWork.video.description}
               src={earlyWork.video.src}
               poster={earlyWork.video.poster}
+              external={earlyWork.video.external}
             />
           </Reveal>
         </div>
