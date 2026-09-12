@@ -12,11 +12,11 @@ export function Contact() {
         <h2 className="mt-4 font-serif text-5xl tracking-tight text-black sm:text-6xl">
           Let’s connect.
         </h2>
-        <p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-600">
+        {/*<p className="mt-5 max-w-lg text-base leading-relaxed text-neutral-600">
           Links live in{" "}
           <code className="text-neutral-800">src/data/site.ts</code>. Add your
           GitHub, LinkedIn, and email there when you’re ready.
-        </p>
+        </p>*/}
 
         <ul className="mt-12 flex flex-col gap-4 sm:flex-row sm:gap-10">
           {links.map((link) => (
