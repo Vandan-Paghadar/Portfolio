@@ -7,18 +7,66 @@ type VideoCardProps = {
   description: string;
   src: string;
   poster?: string;
+  external?: boolean;
 };
 
-export function VideoCard({ title, description, src, poster }: VideoCardProps) {
+function isYouTube(url: string) {
+  return /youtube\.com|youtu\.be/.test(url);
+}
+
+function isVimeo(url: string) {
+  return /vimeo\.com/.test(url);
+}
+
+function getYouTubeEmbedUrl(url: string) {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([\w-]{11})/);
+  return match ? `https://www.youtube.com/embed/${match[1]}?rel=0` : null;
+}
+
+function getVimeoEmbedUrl(url: string) {
+  const match = url.match(/vimeo\.com\/(\d+)/);
+  return match ? `https://player.vimeo.com/video/${match[1]}` : null;
+}
+
+export function VideoCard({ title, description, src, poster, external = false }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [missing, setMissing] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [posterMissing, setPosterMissing] = useState(false);
 
+  const embedUrl = external
+    ? isYouTube(src)
+      ? getYouTubeEmbedUrl(src)
+      : isVimeo(src)
+      ? getVimeoEmbedUrl(src)
+      : null
+    : null;
+
   function play() {
     const video = videoRef.current;
     if (!video) return;
     void video.play();
+  }
+
+  if (external && embedUrl) {
+    return (
+      <article className="flex h-full flex-col rounded-2xl border border-black/8 bg-white p-5 shadow-[0_10px_40px_rgba(0,0,0,0.04)] sm:p-6">
+        <h3 className="font-serif text-2xl tracking-tight text-black">{title}</h3>
+        <p className="mt-4 text-base leading-relaxed text-neutral-600">
+          {description}
+        </p>
+        <div className="mt-6 overflow-hidden rounded-xl border border-black/8 bg-black aspect-video">
+          <iframe
+            src={embedUrl}
+            title={title}
+            className="h-full w-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+          />
+        </div>
+      </article>
+    );
   }
 
   return (
