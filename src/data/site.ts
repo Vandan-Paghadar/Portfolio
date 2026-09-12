@@ -150,16 +150,16 @@ export const exploring = [
 
 export const socials: {
   github: { label: string; href: string };
-  linkedin: { label: string; href: string };
+  discord: { label: string; href: string };
   email: { label: string; href: string };
 } = {
   github: {
     label: "GitHub",
     href: "https://github.com/vandan-paghadar",
   },
-  linkedin: {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/vandan-paghadar",
+  discord: {
+    label: "Discord",
+    href: "https://discord.com/users/1131191058903085177",
   },
   email: {
     label: "Email",
