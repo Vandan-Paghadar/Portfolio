@@ -116,7 +116,7 @@ export const earlyWork = {
     title: "Water Level Rising Indicator",
     description:
       "One of my early experiments with electronics and programming — building a simple indicator that responds as the water level rises.",
-    src: "/videos/water-level-indicator.mp4",
+    src: "https://res.cloudinary.com/jzkigrwi/video/upload/v1789216549/water-level-indicator.mp4",
     poster: "/videos/water-level-indicator-poster.jpg",
     external: false,
   },
