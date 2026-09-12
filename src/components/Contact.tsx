@@ -1,6 +1,6 @@
 import { socials } from "@/data/site";
 
-const links = [socials.github, socials.linkedin, socials.email];
+const links = [socials.github, socials.discord, socials.email];
 
 export function Contact() {
   return (
